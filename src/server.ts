@@ -28,7 +28,7 @@ export class Server {
         app.set("view engine", "pug");
 
         // staic public folder
-        app.use(express.static(path.join(__dirname, "../public")));
+        app.use(express.static(path.join(__dirname, "../public/")));
 
         // Set headers for CORS requests
         // TODO: Adjust these settings to your security concerns!
@@ -39,8 +39,8 @@ export class Server {
             next();
         });
 
-        //Server.setupRoutes(app);
-        app.use('/',initController);
+        // Server.setupRoutes(app);
+        app.use("/", initController);
         app.listen(PORT, () => winston.log("info", "--> Server successfully started at port %d", PORT));
     }
 

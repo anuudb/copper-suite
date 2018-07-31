@@ -149,7 +149,7 @@ gulp.task(PUG, function() {
 
 //copy public folder into build
 gulp.task(COPY_PUBLIC,function(){
-    return gulp.src('public/*')
+    return gulp.src('public/**')
             .pipe(gulp.dest('build/public'));
 });
 
