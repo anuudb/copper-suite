@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
-import {check_os_test} from "./operations/check_environment";
+import { check_os_test} from "./operations/check_environment";
+import { Agent_connector } from "./operations/Agent_connector";
 
 const router: Router = Router();
 
@@ -10,6 +11,7 @@ const router: Router = Router();
         res.status(200).send("Server Test ...");
     });
     router.get("/testview", (req: Request, res: Response) => {
+<<<<<<< HEAD
         let os = check_os_test(1);
         res.render("index", {title : "Copper-Suite", os: os } );
         // res.status(200).send("Server Test ...");
@@ -17,5 +19,17 @@ const router: Router = Router();
     router.get("/ui_link_module", (req: Request, res: Response) => {
         res.render("ui_link_module", {title: "Copper-suite"});
     });
+=======
+            let os = check_os_test(1);
+            res.render("index",{title : "Copper-Suite", val : [1, 2, 3, 33, 10 ], os: os } );
+            // res.status(200).send("Server Test ...");
+        });
+    router.get("/agents", (req: Request, res: Response) => {
+            let Agents = Agent_connector("hi");
+            res.status(200).send("Agent connected....");
+            // res.status(200).send("Server Test ...");
+        });
+    
+>>>>>>> 25322c11e49fc1b8bdd9c1811c56ae641095c663
 
 export const initController: Router = router;
