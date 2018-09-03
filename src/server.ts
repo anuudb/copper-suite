@@ -12,9 +12,7 @@ const PORT: number = 3001;
  * Basic configurations of all middleware libraries are applied here.
  */
 export class Server {
-
     public static start() {
-
         let app: Express = express();
 
         // Decode payload as json with body-parser
@@ -43,7 +41,5 @@ export class Server {
         app.use("/", initController);
         app.listen(PORT, () => winston.log("info", "--> Server successfully started at port %d", PORT));
     }
-
 }
-
 Server.start();

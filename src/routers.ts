@@ -4,28 +4,28 @@ import { Agent_connector } from "./operations/Agent_connector";
 
 const router: Router = Router();
 
-    router.get("/", (req: Request, res: Response) => {
-        res.status(200).send("Server running ...");
-    });
+router.get("/", (req: Request, res: Response) => {
+    res.status(200).send("Server running ...");
+});
 
-    router.get("/test", (req: Request, res: Response) => {
-        res.status(200).send("Server Test ...");
-    });
+router.get("/test", (req: Request, res: Response) => {
+    res.status(200).send("Server Test ...");
+});
 
-    router.get("/testview", (req: Request, res: Response) => {
-        let os = check_os_test(1);
-        res.render("index",{title : "Copper-Suite", val : [1, 2, 3, 33, 10 ], os: os } );
-        // res.status(200).send("Server Test ...");
-    });
+router.get("/testview", (req: Request, res: Response) => {
+    let os = check_os_test(1);
+    res.render("index", {title : "Copper-Suite", val : [1, 2, 3, 33, 10 ], os: os});
+    // res.status(200).send("Server Test ...");
+});
 
-    router.get("/ui_link_module", (req: Request, res: Response) => {
-        res.render("ui_link_module", {title: "Copper-suite"});
-    });
+router.get("/ui_link_module", (req: Request, res: Response) => {
+    res.render("ui_link_module", {title: "Copper-suite"});
+});
 
-    router.get("/agents", (req: Request, res: Response) => {
-        let Agents = Agent_connector("hi");
-        res.status(200).send("Agent connected....");
-        // res.status(200).send("Server Test ...");
-    });
-        
+router.get("/agents", (req: Request, res: Response) => {
+    let Agents = Agent_connector("hi");
+    res.status(200).send("Agent connected....");
+    // res.status(200).send("Server Test ...");
+});
+
 export const initController: Router = router;
