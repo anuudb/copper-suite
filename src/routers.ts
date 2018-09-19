@@ -15,9 +15,9 @@ router.get("/test", (req: Request, res: Response) => {
 
 router.get("/testview", (req: Request, res: Response) => {
     let os = check_os_test(1);
-    // let stats = d_ps(1);
-    console.log(os);
-    res.render("index", {title : "Copper-Suite", val : [1, 2, 3, 33, 10 ], osss: os});
+    let stats = d_ps(1, req, res);
+    // console.log(stats);
+    // res.render("index", {title : "Copper-Suite", val : [1, 2, 3, 33, 10 ], osss: os});
     // res.status(200).send("Server Test ...");
 });
 
