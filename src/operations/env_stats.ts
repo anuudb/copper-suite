@@ -1,5 +1,6 @@
 import { Docker, Options } from "docker-cli-js";
 import path from "path";
+var nrc = require('node-run-cmd');
 
 let dockerCLI = require("docker-cli-js");
 // let DockerOptions = dockerCLI.Options;
@@ -34,6 +35,14 @@ export function d_ps(input: number, req: Request, res: Response) {
 
         // return data;
         res.send(data.raw);
+        
+        var dataCallback = function(data) {
+            useData(data);
+        };
+        nrc.run('ls', { onData: dataCallback });
+        console.log(dataCallback);
+
+
     });
 
     // docker.command("start emailserver", function (err, data) {

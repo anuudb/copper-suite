@@ -7,6 +7,7 @@ import { dovecot_status } from "./operations/dovecot";
 import { dovecot_stop } from "./operations/dovecot_stop";
 import { dovecot_start } from "./operations/dovecot_start";
 import { postfix_status } from "./operations/postfix";
+// import { postfix_status } from "./operations/postfix";
 
 const router: Router = Router();
 
@@ -60,6 +61,11 @@ router.get("/agents", (req: Request, res: Response) => {
     let Agents = Agent_connector("hi");
     res.status(200).send("Agent connected....");
     // res.status(200).send("Server Test ...");
+});
+
+router.get("/cmd_test", (req: Request, res: Response) => {
+    let stats = dovecot_start(1, req, res);
+    console.log(stats);
 });
 
 export const initController: Router = router;
